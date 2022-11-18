@@ -1,16 +1,16 @@
 package FirmXRay.util;
 
-import FirmXRay.base.ExecutionPath;
-import FirmXRay.core.ExecutionEngine;
-import FirmXRay.core.ExecutionPathFinder;
-import ghidra.program.model.address.Address;
-import ghidra.program.model.listing.*;
-import ghidra.program.model.mem.MemoryAccessException;
 import FirmXRay.main.Constant;
 import FirmXRay.main.Logger;
+import ghidra.program.model.address.Address;
+import ghidra.program.model.listing.Program;
+import ghidra.program.model.mem.MemoryAccessException;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BaseAddressUtil {
 
@@ -18,13 +18,12 @@ public class BaseAddressUtil {
     public static long getBaseAddressFromFile(String programName) {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("FirmXRay/base/base.txt"));
+            reader = new BufferedReader(new FileReader("./base/base.txt"));
             String line = reader.readLine();
             while (line != null) {
                 String name = line.split("\t")[0].strip();
                 if (name.equals(programName)) {
-                    long address = Integer.parseInt(line.split("\t")[1]);
-                    return address;
+                    return Integer.parseInt(line.split("\t")[1]);
                 }
                 line = reader.readLine();
             }
@@ -42,7 +41,7 @@ public class BaseAddressUtil {
     public static boolean isBaseInFile(String tag) {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("FirmXRay/base/base.txt"));
+            reader = new BufferedReader(new FileReader("./base/base.txt"));
             String line = reader.readLine();
             while (line != null) {
                 String name = line.split("\t")[0].strip();
@@ -71,7 +70,7 @@ public class BaseAddressUtil {
                 if (program.getMemory().getByte(current) == Constant.E7) {
                     result.add(current.getUnsignedOffset());
                 }
-            } catch (MemoryAccessException e) {
+            } catch (MemoryAccessException ignored) {
 
             }
             current = current.next();
