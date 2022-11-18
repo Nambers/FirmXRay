@@ -17,4 +17,5 @@ dependencies {
 task runFirmXRay(type:JavaExec) {
     main = "FirmXRay.runFirmXRay"
     classpath = sourceSets.main.runtimeClasspath
+    compileJava.options.compilerArgs = ["-Xlint:unchecked"]
 }
