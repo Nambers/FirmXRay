@@ -12,7 +12,7 @@ import static util.Fileutil.writeToFile;
 public class Logger {
 
     public static String TAG;
-    public static boolean log = false;
+    public static boolean log = true;
 
     public static void initLogFiles() {
         writeToFile("./logs/warnning.txt", "", false);

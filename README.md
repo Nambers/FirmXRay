@@ -11,30 +11,17 @@ The three main components of FirmXRay are:
 For more details, please refer to our paper [FirmXRay: Detecting Bluetooth Link Layer Vulnerabilities From Bare-Metal Firmware](http://web.cse.ohio-state.edu/~wen.423/papers/ccs20_FirmXRay).
 
 ## How to run it
-
-FirmXRay is written in Java, and the only dependency is a compiled Ghidra .jar library. To compile such a jar file on your own, please download the Ghidra project and use their build script ([How to do it](https://ghidra-sre.org/InstallationGuide.html#RunJar)).
-
-After the file is sucessfully created, please make sure it locates under **./lib** and is named as **ghidra.jar**.
-
-Next, you can compile the project by simply
-
-```
-make
-```
-
-Try to run it with
-
-```
-make run PATH=<FIRMWARE_PATH> MCU=<Nordic/TI>
-```
-
-You can try our running example with
-
-```
-make run PATH=examples/Nordic/example_nordic.bin MCU=Nordic
-```
-
-
+1. Go to `/src/main/java/runFirmXRay.java` change the file path.
+2.
+   + For CLI:
+    ```bash
+    graldew runFirmXRay
+    ```
+    or (in linux)
+    ```bash
+    ./graldew runFirmXRay
+    ```
+   + For IDEA, run the runFirmXRay task in gradle.
 ## Running Example 
 
 **example_nordic.bin** is a Nordic-based firmware compiled from [main.c](https://github.com/OSUSecLab/FirmXRay/blob/master/examples/Nordic/main.c).

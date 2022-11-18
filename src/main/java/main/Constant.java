@@ -1,21 +1,22 @@
 package main;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Constant {
 
     // config
-    public final static String DIRECTORY_NAME = "/usr/local";
+    public static String DIRECTORY_NAME = "/usr/local";
     public final static int MAX_CYCLE_DIVE = 20;
     public final static int MAX_ITERATION = 3;
     public final static int TIMEOUT = 50000;
     public final static int DISASSEMBLE_TIMEOUT = 30;
-    public final static int MAX_PATH_COUNT = 30;
+//    public final static int MAX_PATH_COUNT = 30;
     public final static int THRESHOLD = 0x1000;
     public final static int MAX_BASE = Integer.MAX_VALUE;
     public final static int MIN_BASE = -1;
-    public final static int STEP = 0x1000;
+//    public final static int STEP = 0x1000;
     public static String MCU;
 
     // Nordic
@@ -39,13 +40,11 @@ public class Constant {
     public final static int BLE_GAP_EVT_KEY_PRESSED = 0x16;
     public final static int BLE_GAP_EVT_AUTH_KEY_REQUEST = 0x17;
     public final static int SD_BLE_GATTS_SERVICE_ADD = 0xa0;
-    public final static int SD_BLE_GATTS_CHARACTERISTIC_ADD = 0xa2;
+    public final static int SD_BLE_GATTS_CHARACTERISTIC_ADD = 0xaa;
     public final static int SD_BLE_UUID_VS_ADD = 0x63;
 
 
-    public final static List<Integer> NORDIC_FUNCTIONS = new ArrayList<>(List.of(SD_BLE_GAP_AUTH, SD_BLE_GAP_ADDR_SET,
-            SD_BLE_GAP_SEC_PARAMS_REPLY, SD_BLE_GAP_LESC_DHKEY_REPLY, SD_BLE_GAP_APPEARANCE_SET, SD_BLE_GAP_AUTH_KEY_REPLY,
-            SD_BLE_GATTS_SERVICE_ADD, SD_BLE_GATTS_CHARACTERISTIC_ADD, SD_BLE_UUID_VS_ADD));
+    public final static List<Integer> NORDIC_FUNCTIONS = new ArrayList<>(List.of(SD_BLE_GATTS_CHARACTERISTIC_ADD));
 
 
     // TI
@@ -111,7 +110,7 @@ public class Constant {
             case SD_BLE_GATTS_SERVICE_ADD:
                 return new ArrayList<>(List.of("r0", "r1"));
             case SD_BLE_GATTS_CHARACTERISTIC_ADD:
-                return new ArrayList<>(List.of("r2"));
+                return new ArrayList<>(List.of("r1"));
             case SD_BLE_GAP_WHITELIST_SET:
                 return new ArrayList<>(List.of("r1"));
             case SD_BLE_UUID_VS_ADD:

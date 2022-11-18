@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation(fileTree(dir: 'lib', include: ['*.jar']))
+}
+
+task runFirmXRay(type:JavaExec) {
+    main = "runFirmXRay"
+    classpath = sourceSets.main.runtimeClasspath
+}

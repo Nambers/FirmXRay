@@ -202,25 +202,18 @@ public class ResultProcessor {
 
             case Constant.SD_BLE_GATTS_CHARACTERISTIC_ADD:
                 for(String target: targetVarSet) {
-                    // long val = readIntRegister(program, engine, target);
-                    long attrStructAdd = engine.registers.get(target);
-
-                    long uuidStructAdd = readIntFromMemory(program, engine, attrStructAdd);
-                    long uuid = readByteFromMemory(program, engine, uuidStructAdd, 2);
+                    long pBle_add_char_params = engine.registers.get(target);
+                    long uuid = readByteFromMemory(program, engine, pBle_add_char_params, 2);
                     values.put("uuid", uuid);
-                    long type = readByteFromMemory(program, engine, uuidStructAdd+2, 1);
-                    values.put("type", type);
+                    long type = readByteFromMemory(program, engine, pBle_add_char_params + 2, 1);
+                    values.put("uuit_type", type);
+                    long char_props = readByteFromMemory(program, engine, pBle_add_char_params + 13, 1);
+                    values.put("perms", char_props);
 
-                    long pAttrStrcutAdd = readIntFromMemory(program, engine,attrStructAdd + 4);
-                    long readPerm = readByteFromMemory(program, engine, pAttrStrcutAdd, 1);
-                    values.put("readperm", readPerm);
-
-                    long writePerm = readByteFromMemory(program, engine, pAttrStrcutAdd + 1, 1);
-                    values.put("writePerm", writePerm);
-
-                    values.put(target, attrStructAdd);
+                    values.put(target, pBle_add_char_params);
                 }
                 break;
+
 
             case Constant.SD_BLE_GAP_WHITELIST_SET:
                 for(String target: targetVarSet) {
