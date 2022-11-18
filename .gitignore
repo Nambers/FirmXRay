@@ -1,12 +1,12 @@
  # common ignore file
- .idea/**
- .gradle/**
+ .idea/
+ .gradle/
  # FirmXRay cache
- out/**
- output/**
- cache/**
- build/**
- base/**
- logs/**
+ out/
+ output/
+ cache/
+ build/
+ base/
+ logs/
 # lib
 lib/ghidra.jar
