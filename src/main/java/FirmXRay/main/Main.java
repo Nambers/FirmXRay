@@ -1,10 +1,11 @@
-package main;
+package FirmXRay.main;
 
-import base.ExecutionPath;
-import core.BaseAddressSolver;
-import core.ExecutionEngine;
-import core.ExecutionPathFinder;
-import core.STRInsSolver;
+import FirmXRay.util.*;
+import FirmXRay.base.ExecutionPath;
+import FirmXRay.core.BaseAddressSolver;
+import FirmXRay.core.ExecutionEngine;
+import FirmXRay.core.ExecutionPathFinder;
+import FirmXRay.core.STRInsSolver;
 import ghidra.GhidraJarApplicationLayout;
 import ghidra.app.plugin.core.analysis.AutoAnalysisManager;
 import ghidra.app.plugin.processors.sleigh.SleighLanguageProvider;
@@ -27,7 +28,6 @@ import ghidra.util.exception.VersionException;
 import ghidra.util.task.TimeoutTaskMonitor;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import util.*;
 
 import java.io.*;
 import java.util.*;
@@ -37,7 +37,6 @@ public class Main {
 
     private static Program program;
     private static long startTime;
-    private static long endTime;
 
     public static void main(String[] args) throws
             IOException, VersionException, CancelledException, DuplicateNameException, InvalidNameException {
@@ -212,7 +211,7 @@ public class Main {
             result.put(StringUtil.getAPIName(api), jsonArray);
         }
 
-        endTime = System.currentTimeMillis();
+        long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
         result.put("Time", totalTime);
         result.put("Path", pathNum);

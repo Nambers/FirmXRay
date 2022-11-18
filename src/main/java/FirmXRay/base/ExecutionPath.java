@@ -1,11 +1,10 @@
-package base;
+package FirmXRay.base;
 
 import ghidra.program.model.address.Address;
 import ghidra.program.model.listing.Instruction;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class ExecutionPath {
     /**

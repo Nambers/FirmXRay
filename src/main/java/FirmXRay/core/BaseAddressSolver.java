@@ -1,6 +1,10 @@
-package core;
+package FirmXRay.core;
 
-import base.BaseConstraints;
+import FirmXRay.util.BaseAddressUtil;
+import FirmXRay.util.FunctionUtil;
+import FirmXRay.util.NumUtil;
+import FirmXRay.util.StringUtil;
+import FirmXRay.base.BaseConstraints;
 import ghidra.GhidraJarApplicationLayout;
 import ghidra.app.plugin.core.analysis.AutoAnalysisManager;
 import ghidra.app.plugin.processors.sleigh.SleighLanguageProvider;
@@ -18,9 +22,7 @@ import ghidra.util.exception.CancelledException;
 import ghidra.util.exception.DuplicateNameException;
 import ghidra.util.exception.VersionException;
 import ghidra.util.task.TimeoutTaskMonitor;
-import main.Constant;
-import main.Logger;
-import util.*;
+import FirmXRay.main.Constant;
 
 import java.io.File;
 import java.io.FileNotFoundException;

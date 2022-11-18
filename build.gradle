@@ -15,6 +15,6 @@ dependencies {
 }
 
 task runFirmXRay(type:JavaExec) {
-    main = "runFirmXRay"
+    main = "FirmXRay.runFirmXRay"
     classpath = sourceSets.main.runtimeClasspath
 }

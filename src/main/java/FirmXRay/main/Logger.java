@@ -1,18 +1,14 @@
-package main;
+package FirmXRay.main;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static util.Fileutil.writeToFile;
+import static FirmXRay.util.Fileutil.writeToFile;
 
 public class Logger {
 
     public static String TAG;
-    public static boolean log = true;
+    public static boolean log = false;
 
     public static void initLogFiles() {
         writeToFile("./logs/warnning.txt", "", false);

@@ -1,14 +1,14 @@
-package core;
+package FirmXRay.core;
 
-import base.ExecutionPath;
+import FirmXRay.base.ExecutionPath;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.lang.Register;
 import ghidra.program.model.listing.Instruction;
 import ghidra.program.model.listing.Program;
 import ghidra.program.model.scalar.Scalar;
-import main.Constant;
-import util.InstructionUtil;
-import util.NumUtil;
+import FirmXRay.main.Constant;
+import FirmXRay.util.InstructionUtil;
+import FirmXRay.util.NumUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;

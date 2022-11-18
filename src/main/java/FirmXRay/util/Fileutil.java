@@ -1,4 +1,6 @@
-package util;
+package FirmXRay.util;
+
+import FirmXRay.main.Logger;
 
 import java.io.*;
 
@@ -6,7 +8,10 @@ public class Fileutil {
 
     public static void writeToFile(String path, String content, boolean append) {
         try {
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(path, append)));
+            File file = new File(path);
+            // if doesn't exist
+            file.createNewFile();
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file, append)));
             out.println(content);
             out.close();
         } catch (IOException e) {

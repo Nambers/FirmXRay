@@ -1,4 +1,4 @@
-package util;
+package FirmXRay.util;
 
 import ghidra.program.model.listing.Instruction;
 

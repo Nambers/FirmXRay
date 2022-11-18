@@ -1,40 +1,16 @@
-package util;
+package FirmXRay.util;
 
-import base.ExecutionPath;
-import core.ExecutionEngine;
-import core.ExecutionPathFinder;
-import ghidra.GhidraJarApplicationLayout;
-import ghidra.app.plugin.core.analysis.AutoAnalysisManager;
-import ghidra.app.plugin.processors.sleigh.SleighLanguageProvider;
-import ghidra.base.project.GhidraProject;
-import ghidra.framework.Application;
-import ghidra.framework.ApplicationConfiguration;
-import ghidra.framework.HeadlessGhidraApplicationConfiguration;
-import ghidra.framework.store.LockException;
-import ghidra.program.disassemble.Disassembler;
+import FirmXRay.base.ExecutionPath;
+import FirmXRay.core.ExecutionEngine;
+import FirmXRay.core.ExecutionPathFinder;
 import ghidra.program.model.address.Address;
-import ghidra.program.model.address.AddressOverflowException;
-import ghidra.program.model.address.AddressSet;
-import ghidra.program.model.address.AddressSetView;
-import ghidra.program.model.lang.LanguageID;
-import ghidra.program.model.lang.LanguageProvider;
-
-import ghidra.program.model.lang.Register;
 import ghidra.program.model.listing.*;
 import ghidra.program.model.mem.MemoryAccessException;
-import ghidra.test.TestProgramManager;
-import ghidra.util.InvalidNameException;
-import ghidra.util.exception.CancelledException;
-import ghidra.util.exception.DuplicateNameException;
-import ghidra.util.exception.VersionException;
-import ghidra.util.task.TaskMonitor;
-import ghidra.util.task.TimeoutTaskMonitor;
-import main.Constant;
-import main.Logger;
+import FirmXRay.main.Constant;
+import FirmXRay.main.Logger;
 
 import java.io.*;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class BaseAddressUtil {
 
@@ -42,7 +18,7 @@ public class BaseAddressUtil {
     public static long getBaseAddressFromFile(String programName) {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("./base/base.txt"));
+            reader = new BufferedReader(new FileReader("FirmXRay/base/base.txt"));
             String line = reader.readLine();
             while (line != null) {
                 String name = line.split("\t")[0].strip();
@@ -66,7 +42,7 @@ public class BaseAddressUtil {
     public static boolean isBaseInFile(String tag) {
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader("./base/base.txt"));
+            reader = new BufferedReader(new FileReader("FirmXRay/base/base.txt"));
             String line = reader.readLine();
             while (line != null) {
                 String name = line.split("\t")[0].strip();

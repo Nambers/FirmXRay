@@ -1,17 +1,16 @@
-package core;
+package FirmXRay.core;
 
-import base.ExecutionPath;
+import FirmXRay.base.ExecutionPath;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.block.CodeBlock;
 import ghidra.program.model.block.CodeBlockReference;
 import ghidra.program.model.lang.OperandType;
 import ghidra.program.model.lang.Register;
 import ghidra.program.model.listing.*;
-import main.Constant;
-import main.Logger;
-import util.BlockUtil;
-import util.FunctionUtil;
-import util.InstructionUtil;
+import FirmXRay.main.Constant;
+import FirmXRay.main.Logger;
+import FirmXRay.util.BlockUtil;
+import FirmXRay.util.InstructionUtil;
 
 import java.util.ArrayList;
 import java.util.HashSet;

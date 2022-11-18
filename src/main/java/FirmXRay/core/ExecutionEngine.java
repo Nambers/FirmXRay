@@ -1,6 +1,6 @@
-package core;
+package FirmXRay.core;
 
-import base.ExecutionPath;
+import FirmXRay.base.ExecutionPath;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.lang.OperandType;
 import ghidra.program.model.lang.Register;
@@ -13,14 +13,13 @@ import ghidra.program.model.scalar.Scalar;
 import ghidra.program.model.symbol.Symbol;
 import ghidra.program.model.symbol.SymbolTable;
 import ghidra.util.DataConverter;
-import main.Constant;
-import main.Logger;
-import util.AddressUtil;
+import FirmXRay.main.Constant;
+import FirmXRay.main.Logger;
+import FirmXRay.util.AddressUtil;
 
-import org.json.*;
-import util.FunctionUtil;
-import util.InstructionUtil;
-import util.NumUtil;
+import FirmXRay.util.FunctionUtil;
+import FirmXRay.util.InstructionUtil;
+import FirmXRay.util.NumUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;

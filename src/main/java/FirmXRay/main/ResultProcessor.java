@@ -1,17 +1,17 @@
-package main;
+package FirmXRay.main;
 
-import core.ExecutionEngine;
-import core.STRInsSolver;
+import FirmXRay.core.ExecutionEngine;
+import FirmXRay.core.STRInsSolver;
 import ghidra.program.model.address.Address;
 import ghidra.program.model.listing.Instruction;
 import ghidra.program.model.listing.Program;
 import ghidra.program.model.mem.MemoryAccessException;
 import ghidra.util.DataConverter;
 import org.json.JSONObject;
-import util.AddressUtil;
-import util.FunctionUtil;
-import util.InstructionUtil;
-import util.NumUtil;
+import FirmXRay.util.AddressUtil;
+import FirmXRay.util.FunctionUtil;
+import FirmXRay.util.InstructionUtil;
+import FirmXRay.util.NumUtil;
 
 import java.util.List;
 
