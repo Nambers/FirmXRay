@@ -1,0 +1,10 @@
+ # common ignore file
+ .idea
+ .gradle
+ # FirmXRay cache
+ out
+ output
+ cache
+ build
+ base
+ logs
