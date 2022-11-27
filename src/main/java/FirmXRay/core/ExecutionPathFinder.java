@@ -99,7 +99,7 @@ public class ExecutionPathFinder {
         Listing listing = program.getListing();
         CodeUnitIterator codeUnitIterator = listing.getCodeUnits(currentBlock, true);
 
-        // Logger.print(String.format("Current Block: %s %d", currentBlock.toString(), currentBlock.hashCode()) );
+         Logger.print(String.format("Current Block: %s %d", currentBlock.toString(), currentBlock.hashCode()) );
 
         // Iterate and add all instructions to path in the current block
         List<Instruction> temp = new ArrayList<>();
@@ -131,14 +131,13 @@ public class ExecutionPathFinder {
 
                 if (history.contains((int) block.getSourceAddress().getUnsignedOffset())) {
                     // encountering cycle block, remove it, search ends
-                    // paths.add(currentPath);
+//                     paths.add(currentPath);
                     continue;
                 }
 
-
-//                if (BlockUtil.isCycle(currentBlock, block.getSourceBlock(), new HashSet<>())) {
-//                    continue; // encountering cycle block, remove it, search ends
-//                }
+                if (BlockUtil.isCycle(currentBlock, block.getSourceBlock(), new HashSet<>(history))) {
+                    continue; // encountering cycle block, remove it, search ends
+                }
 
                 // record history, continue searching in next block
                 List<Integer> newHistory = new ArrayList<>(history);

@@ -8,16 +8,19 @@ import static FirmXRay.util.Fileutil.writeToFile;
 public class Logger {
 
     public static String TAG;
-    public static boolean log = false;
+    public static boolean log = true;
 
     public static void initLogFiles() {
         writeToFile("./logs/warnning.txt", "", false);
         writeToFile("./logs/error.txt", "", false);
+        writeToFile("./logs/info.txt", "", false);
     }
 
     public static void print(String s) {
-        if (log)
+        if (log) {
             System.out.println(s);
+            writeToFile("./logs/info.txt", s, true);
+        }
     }
 
     public static String getDate() {
