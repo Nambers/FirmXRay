@@ -11,6 +11,7 @@ The three main components of FirmXRay are:
 For more details, please refer to our paper [FirmXRay: Detecting Bluetooth Link Layer Vulnerabilities From Bare-Metal Firmware](http://web.cse.ohio-state.edu/~wen.423/papers/ccs20_FirmXRay).
 
 ## How to run it
+0. generate a Ghidra.jar file and put in the lib folder
 1. Go to `/src/main/java/runFirmXRay.java` change the file path.
 2.
    + For CLI:
