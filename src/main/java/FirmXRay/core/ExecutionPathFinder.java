@@ -139,10 +139,6 @@ public class ExecutionPathFinder {
                     continue; // encountering cycle block, remove it, search ends
                 }
 
-                if(history.size() >= 10){
-                    Logger.print("break for preventing cycle calling");
-                    break;
-                }
                 // record history, continue searching in next block
                 List<Integer> newHistory = new ArrayList<>(history);
                 newHistory.add((int) block.getSourceAddress().getUnsignedOffset());
