@@ -95,7 +95,7 @@ public class Main {
 
 
         try {
-             getBase(programName, Logger.TAG, projectName);
+             getBase(program, Logger.TAG);
         } catch (Exception e) {
            Logger.printE(e.toString());
         }
@@ -221,10 +221,10 @@ public class Main {
         Logger.printOutput(result.toString(4));
     }
 
-    private static void getBase(String programName, String tag, String projectName) throws
+    private static void getBase(Program program, String tag) throws
             IOException, VersionException, CancelledException, DuplicateNameException, InvalidNameException {
         if (!BaseAddressUtil.isBaseInFile(tag)) {
-            long base = BaseAddressSolver.getBaseAddressWithConstraint(programName, projectName);
+            long base = BaseAddressSolver.getBaseAddressWithConstraint(program);
             Fileutil.writeToFile("./base/base.txt", String.format("%s\t%d", tag, base), true);
         }
     }

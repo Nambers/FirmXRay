@@ -32,41 +32,11 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseAddressSolver {
 
-    public static long getBaseAddressWithConstraint(String programName, String projectName) throws IOException, VersionException, CancelledException,
+    public static long getBaseAddressWithConstraint(Program program) throws IOException, VersionException, CancelledException,
             DuplicateNameException, InvalidNameException {
 
         String projectDirectoryName = Constant.DIRECTORY_NAME;
         Set<Long> result = new HashSet<>();
-
-        // Define Ghidra components
-        GhidraProject ghidraProject;
-        TestProgramManager programManager = new TestProgramManager();
-
-        // Initialize application
-        if (!Application.isInitialized()) {
-            ApplicationConfiguration configuration = new HeadlessGhidraApplicationConfiguration();
-            configuration.setInitializeLogging(false);
-            Application.initializeApplication(new GhidraJarApplicationLayout(), configuration);
-        }
-
-        // Create a Ghidra project
-        ghidraProject = GhidraProject.createProject(projectDirectoryName, projectName, true);
-
-        // Load binary file
-        File file = new File(programName);
-        if (!file.exists()) {
-            throw new FileNotFoundException("Can not find program: " + programName);
-        }
-
-        LanguageProvider languageProvider;
-        try {
-            languageProvider = new SleighLanguageProvider();
-        } catch (Exception e) {
-            System.out.println("Unable to build language provider.");
-            return 0;
-        }
-
-        Program program = ghidraProject.importProgram(file, languageProvider.getLanguage(new LanguageID(Constant.ARM_CORTEX_LE_32)), null);
 
         // Analyze the loaded binary file
         int txId = program.startTransaction("Analysis");
